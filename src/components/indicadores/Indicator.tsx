@@ -18,7 +18,7 @@ const Indicator: React.FC<IndicatorsProps> = ({cant, describe, icon}) => {
                         <span className="sub-tittle"> {cant} </span>
                     </Grid2>
                     <Grid2 xs={12}>
-                        <span className="paragraph-card-indicators"> {describe} </span>
+                        <p className="paragraph-card-indicators"> {describe} </p>
                     </Grid2>
                 </Grid2>
                 

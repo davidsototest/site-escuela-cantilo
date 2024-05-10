@@ -1,14 +1,64 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import { OutlinedInput , List, ListItem, ListItemButton, ListItemText, InputAdornment, IconButton } from "@mui/material";
+import { OutlinedInput , List, ListItem, ListItemButton, ListItemText, InputAdornment, IconButton, Skeleton } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
 import RoomIcon from '@mui/icons-material/Room';
+import { useEffect, useState } from "react";
+import 'firebase/firestore';
+import postEmail from "../../firebase/postEmail";
+import AlertSucess from "../alerts/AlertSucess";
+import AlertQuestion from "../alerts/AlertQuestion";
+
+interface EmailData {
+    email: string;
+}
 
 
 const Footer = () => {
+
+    const [skeletor, setSkeletor] = useState(false);
+
+    const [email, setEmail] = useState('');
+    const [isValidEmail, setIsValidEmail] = useState(true);
+
+    useEffect(() => {
+        const isValid = /\S+@\S+\.\S+/.test(email);
+        setIsValidEmail(isValid);
+    }, [email]);
+
+    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value);
+    };
+
+    const handleSaveToFirestore = async () => {
+        if (isValidEmail) {
+            const emailData: EmailData = {
+                email: email,
+              };
+
+              setSkeletor(true);
+
+              try {
+                await postEmail(emailData);
+                setSkeletor(false);
+                AlertSucess();
+              } catch (error) {
+                console.log("mal salio")
+              }
+
+              setSkeletor(false);
+              setEmail("");
+
+        } else {
+            if(email){
+                AlertQuestion();
+            }
+        }
+    };
+
 
     const enlaces = [
         {
@@ -42,21 +92,28 @@ const Footer = () => {
                 </span>
             </Grid2>
             <Grid2 xs={11} sm={6} md={6}>
-            <OutlinedInput
-                type="email"
-                placeholder="ejemplo@correo.com"
-                sx={{
-                    color: '#006634'
-                }}
-                endAdornment={
-                    <InputAdornment position="start">
-                        <IconButton>
-                            <EmailIcon sx={{ color: '#006634' }}/>
-                        </IconButton>
-                    </InputAdornment>
-                }
-                fullWidth 
-            />
+                <OutlinedInput
+                    type="email"
+                    placeholder="ejemplo@correo.com"
+                    value={email}
+                    onChange={handleEmailChange}
+                    // error={!isValidEmail}
+                    sx={{
+                        color: '#006634'
+                    }}
+                    endAdornment={
+                        <InputAdornment position="start">
+                            <IconButton>
+                                {!skeletor ? (
+                                    <EmailIcon sx={{ color: '#006634' }} onClick={handleSaveToFirestore}/>
+                                ) : (
+                                    <Skeleton variant="circular" width={40} height={40} />
+                                )}
+                            </IconButton>
+                        </InputAdornment>
+                    }
+                    fullWidth 
+                />
             </Grid2>
 
             <Grid2 xs={10} sm={12} sx={{ borderBottom: '2px dashed #006634', textAlign: 'center' }} marginTop='30px' marginBottom='45px'>
@@ -102,8 +159,8 @@ const Footer = () => {
                     {enlaces.map((item, index) => (
                         <ListItem key={index} sx={{padding: '0px', marginBottom: '10px'}}>
                             <ListItemButton component="a" href={item.url} target="_blank" sx={{padding: '0px'}}>
-                                <ArrowForwardIosIcon/>
-                                <ListItemText primary={item.name} sx={{margin: '0px', padding: '5px'}}/>
+                                <ArrowForwardIosIcon style={{color: "#006634"}}/>
+                                <p className="listItem"> {item.name} </p>
                             </ListItemButton>
                         </ListItem>
                     ))}

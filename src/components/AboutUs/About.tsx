@@ -44,7 +44,7 @@ const About = () => {
     return (
         <>
             <Grid2 container rowSpacing={3}>
-                <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center">
+                <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center" >
                     <LabelTap labelText="Quienes Somos"/>
                 </Grid2>
 
@@ -52,9 +52,9 @@ const About = () => {
                     <h2 className="sub-tittle">Formación Integral en todo el Trayecto Educativo</h2>
                 </Grid2>      
                 <Grid2 xs={10} md={6} display="flex" justifyContent="center" margin='auto' textAlign='center'>
-                    <span>
+                    <p className="paragraph">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem delectus itaque sit, in blanditiis molestias animi voluptas, ipsa molestiae beatae quisquam est illo veniam dolore obcaecati nostrum cupiditate vero? Error. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem delectus itaque sit, in blanditiis molestias animi voluptas, ipsa molestiae beatae quisquam est illo veniam dolore obcaecati nostrum cupiditate vero? Error.
-                    </span>
+                    </p>
                 </Grid2>   
             </Grid2>
 

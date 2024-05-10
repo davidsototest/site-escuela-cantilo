@@ -12,7 +12,7 @@ const BigCard = () => {
             </Grid2>
 
             <Grid2 xs={10} sm={5} md={6} alignContent='center'>
-                <h2 className="sub-tittle-start">Welcome To Our School To Learn And Teach Akhir Playing And Gaming</h2>
+                <h2 className="sub-tittle-start">Welcome To Our School To Learn And Teach Akhir Playing And Gaming 24</h2>
                 <span className="paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore officia architecto, voluptates, culpa saepe praesentium a error ex obcaecati et quaerat velit iusto nam temporibus, tempore unde debitis minima doloremque?
                 </span>

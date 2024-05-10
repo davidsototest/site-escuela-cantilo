@@ -27,7 +27,7 @@ const Opinions = () => {
             photo: "https://lh3.googleusercontent.com/a-/ALV-UjW1qXugTI8W7DSvARZUnzFdHPoBADsjumrMGnx_weAKdjTnDVxP=w60-h60-p-rp-mo-ba3-br100"
         },
         {
-            name: "Renata Contristano",
+            name: "Renata Contr...",
             stars: 5,
             text: "Muy buenas misas. Un horario muy bueno para poder disfrutarlas.",
             photo: "https://lh3.googleusercontent.com/a-/ALV-UjUoszeloTy0kH0fwQTufN-iBiZGfxMxRshTzlQLl2ie8TcLcT0wYw=w60-h60-p-rp-mo-ba3-br100"
@@ -72,13 +72,19 @@ const Opinions = () => {
 
     return (
         <Grid2 container display='flex' justifyContent='center'> 
-            <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center" marginBottom={4}>
+            <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center" marginBottom={-5}>
                 <LabelTap labelText="Opiniones de Cantilo"/>
             </Grid2>
-            <Grid2 xs={10} sm={3} display='flex'>
+            <Grid2 container marginTop={"70px"} justifyContent="center" columnSpacing={3} rowSpacing={3} display='flex' alignItems='center' marginLeft={0}>
                 {opinions.map((item, index) => (
-                    <OpinionsCard key={index} {...item}/>
-                ))}
+                    
+                        
+                            <Grid2 key={index} xs={10} sm={3} md={2.4} minWidth={"200px"}>
+                                <OpinionsCard {...item}/> 
+                            </Grid2>
+                        
+                    
+                ))} 
             </Grid2>
         </Grid2>
             

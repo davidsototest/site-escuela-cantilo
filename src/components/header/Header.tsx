@@ -1,9 +1,33 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 
 const Header = () => {
-    const pages = ['Inicio', 'Quienes somos', 'Historia', 'Contacto', 'Resumen'];
+
+    const pages = [
+        {
+            "name": "Quienes somos",
+            "id": "aboutUs"
+        },
+        {
+            "name": "Indicadores",
+            "id": "indicator"
+        },
+        {
+            "name": "Por qué Cantilo",
+            "id": "bigCard"
+        },
+        {
+            "name": "Opiniones",
+            "id": "opinions"
+        },
+        {
+            "name": "Contacto",
+            "id": "footer"
+        }
+    ];
+
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -44,12 +68,21 @@ const Header = () => {
         };
       }, []);
 
+        //scroll para los items del menu
+        const handleClickScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+            event.preventDefault();
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
     return (
-        <AppBar id='header' position="static" style={{ background: 'transparent'}}>
+        // <AppBar style={{ background: 'transparent', width: "100%" }}>
             <div className={`header-one ${scrolled ? 'scrolled' : ''}`}>
                 <Toolbar disableGutters sx={{marginLeft: '10px', marginRight: '10px'}}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                        <span className={`sub-tittle ${scrolled ? 'scrolled' : ''}`} style={{marginLeft: '20px'}}>Escuela Cantilo</span>
+                        <span className={`sub-tittle ${scrolled ? 'scrolled' : ''}`} style={{marginLeft: '20px', padding: "10px"}}>Escuela Cantilo</span>
                         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                             <IconButton
                                 size="large"
@@ -77,9 +110,14 @@ const Header = () => {
                                 onClose={handleCloseNavMenu}
                             >
                                 {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <a key={page} className="style-text" href="#">
-                                            {page}
+                                    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                                        <a 
+                                            className="style-text"
+                                            key={page.name}
+                                            href="#" 
+                                            onClick={(event) => handleClickScroll(event, page.id)}
+                                        >
+                                            {page.name}
                                         </a>
                                     </MenuItem>
                                 ))}
@@ -88,8 +126,13 @@ const Header = () => {
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
                                 
-                                <a key={page} className={`style-text ${scrolled ? 'scrolled' : ''}`} href="#">
-                                    {page}
+                                <a 
+                                    key={page.name} 
+                                    className={`style-text ${scrolled ? 'scrolled' : ''}`} 
+                                    href="#" 
+                                    onClick={(event) => handleClickScroll(event, page.id)}
+                                >
+                                    {page.name}
                                 </a>
                             
                             ))}
@@ -97,9 +140,8 @@ const Header = () => {
                     </Box>
                 </Toolbar>
             </div>
-        </AppBar>
+        // </AppBar>
     );
 }
 
 export default Header;
-
