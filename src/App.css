@@ -21,6 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: solid 1px red; */
   /* background-color: blue; */
 }
 
@@ -78,6 +79,23 @@
   height: auto;
 }
 
+.slide div {
+  position: relative;
+}
+
+.slide div span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-550%, -20%);
+  font-size: 60px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-primary);
+  text-shadow: 0px 0px 20px rgb(255, 255, 255);
+}
+
 @keyframes slider {
   0% { margin-left: 0%; }
   20% { margin-left: 0%; }
@@ -91,8 +109,6 @@
   75% { margin-left: -300%; }
   100% { margin-left: -300%; }
 }
-
-
 
  /* ***************************************************    TEXTOS ******************** */
 .fuente principal {
@@ -270,6 +286,28 @@
   color: var(--color-button);
 }
 
+.text-hero {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* color: white; */
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.text-hero-paragraph{
+  font-size: 22px;
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(3, 3, 3);
+  text-align: center;
+  display: flex;
+}
+
 
 
 /* ******************************************** BOTONES ********************* */
@@ -318,7 +356,7 @@
 /* ******************************************** HEADER ********************* */
 
 .header {
-  z-index: 9999;
+  z-index: 1;
   position: fixed;
   width: 100%;
   padding: 10px 10px 10px 10px;
@@ -398,8 +436,7 @@
 .container-card {
   width: 100%;
   padding: 30px;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.07); /* sombra */
-  /* display: grid; */
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.07); /* sombra de la card*/
 }
 
 .container-img {
@@ -446,6 +483,7 @@
 @media (min-width: 250px) and (max-width: 600px) {
   .indicators {
     height: 650px;
+    margin-top: 40px;
   }
   .quotation {
     right: -230px; /* Posición desde la derecha */
@@ -459,6 +497,7 @@
 @media (min-width: 601px) and (max-width: 960px) {
   .indicators {
     height: 360px;
+    margin-top: 50px;
   }
   .quotation {
     right: -100px; /* Posición desde la derecha */
@@ -511,7 +550,7 @@
 
 .footer-fondo{
   background:  var(--color-label);
-  border-radius: 5% 5% 0% 0%;
+  border-radius: 25px 25px 0 0;
   /* transform: scaleX(2.1);
   z-index: -1; */
   padding: 1px;

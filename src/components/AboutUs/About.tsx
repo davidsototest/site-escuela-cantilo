@@ -43,12 +43,12 @@ const About = () => {
 
     return (
         <>
-            <Grid2 container rowSpacing={3}>
-                <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center" >
+            <Grid2 container maxWidth={"1300px"} marginTop={6}>
+                <Grid2 xs={12} display="flex" justifyContent="center" marginBottom={3}>
                     <LabelTap labelText="Quienes Somos"/>
                 </Grid2>
 
-                <Grid2 xs={10} md={12} display="flex" justifyContent="center" margin='auto'>
+                <Grid2 xs={10} md={12} display="flex" justifyContent="center" margin='auto' marginBottom={2}>
                     <h2 className="sub-tittle">Formación Integral en todo el Trayecto Educativo</h2>
                 </Grid2>      
                 <Grid2 xs={10} md={6} display="flex" justifyContent="center" margin='auto' textAlign='center'>
@@ -58,9 +58,9 @@ const About = () => {
                 </Grid2>   
             </Grid2>
 
-            <Grid2 container marginTop={"70px"} justifyContent="center" columnSpacing={5} rowSpacing={5} display='flex' alignItems='center' marginLeft={0}>
+            <Grid2 container marginTop={4} justifyContent="center" display='flex' alignItems='center' columnSpacing={{ xs: 0, sm: 3, md: 5 }} rowSpacing={{ xs: 3, sm: 3, md: 5 }}>
                 {images.map((item, index) => (
-                    <Grid2 key={index} xs={11} sm={5} md={5} lg={3} justifyContent="center" display='flex'>
+                    <Grid2 key={index} xs={10} sm={5} md={5} lg={3} justifyContent="center" display='flex'>
                         <CardAbout {...item}/>
                     </Grid2>
                 ))}

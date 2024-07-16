@@ -6,12 +6,12 @@ const BigCard2 = () => {
 
 
     return (
-        <Grid2 container columnSpacing={3} justifyContent='center'>
+        <Grid2 container justifyContent='center' marginTop={6}>
             <Grid2 xs={12} sm={5} md={6} display='flex' justifyContent='center' alignContent='center'>
                 <img className="imgBigCard2" src="https://images.pexels.com/photos/20881051/pexels-photo-20881051/free-photo-of-bajo-el-puente.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="imagen-card-grande" width="100%"/>
             </Grid2>
 
-            <Grid2 xs={10} sm={5} md={6} alignContent='center'>
+            <Grid2 xs={10} sm={5} md={6} alignContent='center' paddingLeft={2}>
                 <h2 className="sub-tittle-end">Welcome To Our School To Learn And Teach Akhir Playing And Gaming 24</h2>
                 <p className="paragraph-end">
                     dere Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore officia architecto, voluptates, culpa saepe praesentium a error ex obcaecati et quaerat velit iusto nam temporibus, tempore unde debitis minima doloremque?

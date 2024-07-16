@@ -1,6 +1,5 @@
 
 import './App.css';
-import Carusel from './components/carusel/Carusel';
 import Header from './components/header/Header';
 import Indicators from './components/indicadores/Indicators';
 import About from './components/AboutUs/About';
@@ -11,24 +10,22 @@ import {theme} from './theme';
 import Author from './components/creator/Authot';
 import Opinions from './opinions/Opinions';
 import BigCard2 from './components/bigCard/BigCard2';
+import CarouselTwo from './components/carusel/CarouselTwo';
 
 function App() {
 
-  const margintopp = "100px";
-
-
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <div>
         <div className='header'>
           <Header/>
         </div>
-
-        <Carusel/>
+        
+        <CarouselTwo />
         
         <div id="aboutUs"></div>
 
-        <div style={{maxWidth: '1300px', margin: 'auto', marginTop: margintopp}}>
+        <div style={{maxWidth: '1300px', margin: 'auto'}}>
           <About/>
         </div>
 
@@ -42,7 +39,7 @@ function App() {
 
         <div id="bigCard"></div>
 
-        <div style={{maxWidth: '1300px', margin: 'auto', marginTop: margintopp }}>
+        <div style={{maxWidth: '1300px', margin: 'auto'}}>
           <BigCard/>
         </div>
         
@@ -52,14 +49,14 @@ function App() {
 
         <div id="opinions"></div>
 
-        <div style={{maxWidth: '1300px', margin: 'auto', marginTop: margintopp }}>
+        <div style={{maxWidth: '1300px', margin: 'auto' }}>
           <Opinions />
         </div>
 
         <div id="footer"></div>
         
         <div className='footer-fondo'>
-          <div style={{maxWidth: '1300px', margin: 'auto', marginTop: "40px"}}>
+          <div style={{maxWidth: '1300px', margin: 'auto', marginTop: "30px"}}>
             <Footer/>
           </div>
           <div className='derechos-reservados'>

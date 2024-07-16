@@ -9,9 +9,14 @@ const Author = () => {
           <Grid2 xs={10} sm={12} textAlign='center' marginBottom={1}>
             <p className="paragraph"><strong>Escuela Padre Rafael Cantilo</strong> © Todos los derechos reservados.</p>
           </Grid2>
-          <Grid2 xs={12} textAlign='center'>
+          <Grid2 xs={12} textAlign='center' marginBottom={1}>
             <p className="paragraph">
               Created by <a className="name-david" href={urlDavid} target="_blank" rel="noreferrer">David Soto 🐈</a>
+            </p>
+          </Grid2>
+          <Grid2 xs={12} textAlign='center'>
+            <p className="paragraph">
+              <a className="name-david" href={urlDavid} target="_blank" rel="noreferrer">Administración</a>
             </p>
           </Grid2>
         </Grid2>

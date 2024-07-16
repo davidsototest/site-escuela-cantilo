@@ -6,12 +6,12 @@ const BigCard = () => {
 
 
     return (
-        <Grid2 container columnSpacing={3} justifyContent='center'>
-            <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center" marginBottom={4}>
+        <Grid2 container justifyContent='center' marginTop={6}>
+            <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center" marginBottom={3}>
                 <LabelTap labelText="Por Qué Cantilo"/>
             </Grid2>
 
-            <Grid2 xs={10} sm={5} md={6} alignContent='center'>
+            <Grid2 xs={10} sm={5} md={6} alignContent='center' paddingRight={2}>
                 <h2 className="sub-tittle-start">Welcome To Our School To Learn And Teach Akhir Playing And Gaming 24</h2>
                 <span className="paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore officia architecto, voluptates, culpa saepe praesentium a error ex obcaecati et quaerat velit iusto nam temporibus, tempore unde debitis minima doloremque?

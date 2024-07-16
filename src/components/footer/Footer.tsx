@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import { OutlinedInput , List, ListItem, ListItemButton, ListItemText, InputAdornment, IconButton, Skeleton } from "@mui/material";
+import { OutlinedInput , List, ListItem, ListItemButton, InputAdornment, IconButton, Skeleton } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -11,6 +11,7 @@ import 'firebase/firestore';
 import postEmail from "../../firebase/postEmail";
 import AlertSucess from "../alerts/AlertSucess";
 import AlertQuestion from "../alerts/AlertQuestion";
+import AlertErrorService from "../alerts/AlertErrorService";
 
 interface EmailData {
     email: string;
@@ -43,14 +44,13 @@ const Footer = () => {
 
               try {
                 await postEmail(emailData);
-                setSkeletor(false);
                 AlertSucess();
               } catch (error) {
-                console.log("mal salio")
+                AlertErrorService();
+              } finally {
+                setSkeletor(false);
+                setEmail("");
               }
-
-              setSkeletor(false);
-              setEmail("");
 
         } else {
             if(email){
@@ -85,38 +85,39 @@ const Footer = () => {
 
 
     return (
-        <Grid2 container columnSpacing={3} justifyContent='center'>
+        <Grid2 container columnSpacing={{ xs: 0, sm: 2, md: 3 }} justifyContent='center'>
             <Grid2 xs={11} sm={5} md={6} alignContent="center">
                 <span className="sub-tittle">
                     Suscribite a nuestro Newletter
                 </span>
             </Grid2>
-            <Grid2 xs={11} sm={6} md={6}>
+            <Grid2 xs={11} sm={5} md={6} alignSelf={"center"}>
                 <OutlinedInput
                     type="email"
                     placeholder="ejemplo@correo.com"
                     value={email}
                     onChange={handleEmailChange}
-                    // error={!isValidEmail}
                     sx={{
-                        color: '#006634'
+                        color: '#006634',
                     }}
                     endAdornment={
                         <InputAdornment position="start">
-                            <IconButton>
-                                {!skeletor ? (
-                                    <EmailIcon sx={{ color: '#006634' }} onClick={handleSaveToFirestore}/>
-                                ) : (
-                                    <Skeleton variant="circular" width={40} height={40} />
-                                )}
-                            </IconButton>
+                            
+                            {!skeletor ? (
+                                <IconButton onClick={handleSaveToFirestore}>
+                                    <EmailIcon sx={{ color: '#006634' }} />
+                                </IconButton>
+                            ) : (
+                                <Skeleton variant="circular" width={40} height={40} />
+                            )}
+                            
                         </InputAdornment>
                     }
                     fullWidth 
                 />
             </Grid2>
 
-            <Grid2 xs={10} sm={12} sx={{ borderBottom: '2px dashed #006634', textAlign: 'center' }} marginTop='30px' marginBottom='45px'>
+            <Grid2 xs={10} sm={12} sx={{ borderBottom: '2px dashed #006634', textAlign: 'center' }} marginTop='30px' marginBottom='30px'>
                 
             </Grid2>
 

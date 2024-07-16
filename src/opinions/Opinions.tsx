@@ -71,18 +71,16 @@ const Opinions = () => {
     ];
 
     return (
-        <Grid2 container display='flex' justifyContent='center'> 
+        <Grid2 container display='flex' justifyContent='center' marginTop={9} padding={2}> 
             <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center" marginBottom={-5}>
                 <LabelTap labelText="Opiniones de Cantilo"/>
             </Grid2>
-            <Grid2 container marginTop={"70px"} justifyContent="center" columnSpacing={3} rowSpacing={3} display='flex' alignItems='center' marginLeft={0}>
+            <Grid2 container marginTop={"70px"} justifyContent="center" columnSpacing={{ xs: 0, sm: 3, md: 5 }} rowSpacing={{ xs: 3, sm: 3, md: 5 }} display='flex' alignItems='center'>
                 {opinions.map((item, index) => (
-                    
-                        
-                            <Grid2 key={index} xs={10} sm={3} md={2.4} minWidth={"200px"}>
-                                <OpinionsCard {...item}/> 
-                            </Grid2>
-                        
+    
+                    <Grid2 key={index} xs={10} sm={4} md={4} lg={2.4} minWidth={"200px"}>
+                        <OpinionsCard {...item}/> 
+                    </Grid2>  
                     
                 ))} 
             </Grid2>

@@ -1,11 +1,12 @@
 import Swal from 'sweetalert2';
 
-export const AlertQuestion = () => {
+export const AlertErrorService = () => {
   return Swal.fire({
     
-        title: '¡Correo Inválido!',
+        title: '¡Algo salió mal!',
+        text: 'Ocurrió un error en los servicios para almacenar el correo, en los próximos días se estará corrigiendo.',
         icon: 'error',
-        confirmButtonText: 'Intentar de nuevo',
+        confirmButtonText: 'Salir',
         confirmButtonColor: "#006634",
         customClass: {
             confirmButton: 'button-seconary',
@@ -15,4 +16,4 @@ export const AlertQuestion = () => {
   });
 };
 
-export default AlertQuestion;
+export default AlertErrorService;
