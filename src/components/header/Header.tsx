@@ -109,7 +109,7 @@ const Header = () => {
             />
             <h2
               className={`sub-tittle ${scrolled ? "scrolled" : ""}`}
-              style={{ padding: "10px" }}
+              style={{ padding: "10px", alignContent: "center" }}
             >
               Somos Cantilo!
             </h2>
