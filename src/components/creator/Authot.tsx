@@ -28,7 +28,7 @@ const Author = () => {
       <Grid2 xs={12} textAlign="center">
         <p className="paragraph">
           <Link to="/login" className="name-david">
-            Administración d
+            Administración
           </Link>
         </p>
       </Grid2>

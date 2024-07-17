@@ -308,23 +308,6 @@
   display: flex;
 }
 
-@media (max-width: 600px) {
-  .text-hero {
-    max-width: 90%;
-    top: 30%;
-    left: 30%;
-    transform: translateX(-20%);
-    padding: 10px; 
-  }
-  .text-hero-paragraph{
-    font-size: 12px;
-  }
-}
-
-
-
-
-
 /* ******************************************** BOTONES ********************* */
 .button-primary {
   font-family: var(--font-secondary);
@@ -412,27 +395,27 @@
 
 /* ******************************************** CARRUSEL  ********************* */
 
-.carusel-personal {
+/* .carusel-personal {
   height: 28vh  !important;
   overflow: hidden; 
-  /* Altura deseada para el carrusel */
-}
+   Altura deseada para el carrusel 
+} */
 
-@media screen and (min-width: 700px) {
+/* @media screen and (min-width: 700px) {
   .carusel-personal {
     height: 90vh !important; 
-    /* Para escritorio */
+     Para escritorio 
   }
-}
+} */
 
-.carusel-personal .carousel-inner .carousel-item img {
-  height: 100% !important; 
+/* .carusel-personal .carousel-inner .carousel-item img {
+  height: 100% !important;  */
   /* Hacer que las imágenes llenen la altura del carrusel */
-  width: 100vw !important; 
+  /* width: 100vw !important;  */
   /* Ajustar automáticamente el ancho según la altura */
-   object-fit: cover !important; 
+   /* object-fit: cover !important;  */
    /*Escalar la imagen para llenar el contenedor sin distorsión */
-} 
+/* }  */
 
 /* ******************************************** DIV DE APP.TSX ********************* */
 .bigcard2 {
@@ -508,6 +491,16 @@
     margin-top: -80px;
     margin-bottom: 45px;
   }
+  .text-hero {
+    max-width: 90%;
+    top: 30%;
+    left: 30%;
+    transform: translateX(-20%);
+    padding: 10px; 
+  }
+  .text-hero-paragraph{
+    font-size: 14px;
+  }
 }
 @media (min-width: 601px) and (max-width: 960px) {
   .indicators {
@@ -522,6 +515,16 @@
   .bigcard2 {
     margin-top: -10px;
 
+  }
+  .text-hero {
+    max-width: 90%;
+    top: 50%;
+    left: 30%;
+    transform: translateX(-20%);
+    padding: 10px; 
+  }
+  .text-hero-paragraph{
+    font-size: 16px;
   }
 }
 
