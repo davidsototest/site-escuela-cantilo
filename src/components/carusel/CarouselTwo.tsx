@@ -3,6 +3,8 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import React from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+import { logocantilo } from "../header/Header";
+// import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -27,14 +29,29 @@ const CarouselTwo: React.FC<Props> = (Props) => {
 
   return (
     <Box sx={{ width: "100%", flexGrow: 1, position: "relative" }}>
+      
       <div className="text-hero">
-        <p className="sub-tittle" style={{ marginBottom: "15px" }}>
+        <Grid container>
+        <Grid xs={12} display="flex" justifyContent="center">
+          <img
+          className="logoCantiloCarousel"
+          src={logocantilo}
+          alt="Escuela Padre Rafael Cantilo"
+        />
+        </Grid>
+        <Grid>
+        <h1 className="sub-tittle" style={{ marginBottom: "15px", display: "block" }}>
           Escuela Padre Rafael Cantilo
-        </p>
+        </h1>
         <p className="text-hero-paragraph">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias iusto tempore ad doloribus reiciendis magni est animi itaque recusandae similique, id sit inventore incidunt a quasi minima
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
+          iusto tempore ad doloribus reiciendis magni est animi itaque
+          recusandae similique, id sit inventore incidunt a quasi minima
           reprehenderit laudantium aliquid.
         </p>
+        </Grid>
+      </Grid>
+        
       </div>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
