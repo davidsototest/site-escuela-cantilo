@@ -2,7 +2,7 @@
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { FC } from "react";
 import OpinionsCard from "./OpinionsCard";
-import LabelTap from "../components/label/LabelTap";
+import LabelTap from "../label/LabelTap";
 
 
 const Opinions = () => {

@@ -291,11 +291,11 @@
   top: 40%;
   left: 50%;
   transform: translateX(-50%);
-  /* color: white; */
   background-color: rgba(255, 255, 255, 0.7);
   padding: 10px;
   border-radius: 5px;
   z-index: 2;
+  max-width: 40%;
 }
 
 .text-hero-paragraph{
@@ -307,6 +307,21 @@
   text-align: center;
   display: flex;
 }
+
+@media (max-width: 600px) {
+  .text-hero {
+    max-width: 90%;
+    top: 30%;
+    left: 30%;
+    transform: translateX(-20%);
+    padding: 10px; 
+  }
+  .text-hero-paragraph{
+    font-size: 12px;
+  }
+}
+
+
 
 
 

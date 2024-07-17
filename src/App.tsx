@@ -1,70 +1,31 @@
-
-import './App.css';
-import Header from './components/header/Header';
-import Indicators from './components/indicadores/Indicators';
-import About from './components/AboutUs/About';
-import BigCard from './components/bigCard/BigCard';
-import Footer from './components/footer/Footer';
-import { ThemeProvider } from '@mui/material';
-import {theme} from './theme';
-import Author from './components/creator/Authot';
-import Opinions from './opinions/Opinions';
-import BigCard2 from './components/bigCard/BigCard2';
-import CarouselTwo from './components/carusel/CarouselTwo';
+import "./App.css";
+import { ThemeProvider } from "@mui/material";
+import { theme } from "./theme";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "toastify-js/src/toastify.css";
+import { useMemo } from "react";
+import { getRoutes } from "./routes/routes";
+import { useAuth } from "./context/AuthContext";
 
 function App() {
+  const { token } = useAuth();
+
+  // Usa useMemo para recalcular las rutas solo cuando token cambie
+  const routes = useMemo(() => getRoutes(token), [token]);
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        <div className='header'>
-          <Header/>
-        </div>
-        
-        <CarouselTwo />
-        
-        <div id="aboutUs"></div>
-
-        <div style={{maxWidth: '1300px', margin: 'auto'}}>
-          <About/>
-        </div>
-
-        <div id="indicator"></div>
-
-        <div className='indicators'>
-          <div style={{maxWidth: '1300px'}}>
-            <Indicators/>
-          </div>
-        </div>
-
-        <div id="bigCard"></div>
-
-        <div style={{maxWidth: '1300px', margin: 'auto'}}>
-          <BigCard/>
-        </div>
-        
-        <div className='bigcard2'>
-          <BigCard2/>
-        </div>
-
-        <div id="opinions"></div>
-
-        <div style={{maxWidth: '1300px', margin: 'auto' }}>
-          <Opinions />
-        </div>
-
-        <div id="footer"></div>
-        
-        <div className='footer-fondo'>
-          <div style={{maxWidth: '1300px', margin: 'auto', marginTop: "30px"}}>
-            <Footer/>
-          </div>
-          <div className='derechos-reservados'>
-            <Author/>
-          </div>
-        </div>
-
-      </div>
+      <Router>
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={<route.element />}
+            />
+          ))}
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }

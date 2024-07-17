@@ -1,7 +1,7 @@
 
 import 'firebase/compat/firestore';
 import { collection, addDoc } from "firebase/firestore"; 
-import db from './firebase';
+import { db } from './firebase';
 
 interface EmailData {
     email: string;

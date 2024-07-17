@@ -1,8 +1,5 @@
-
-import {
-  Box,
-  useTheme,
-} from "@mui/material";
+import { Box, useTheme } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import React from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
@@ -31,14 +28,14 @@ const CarouselTwo: React.FC<Props> = (Props) => {
   return (
     <Box sx={{ width: "100%", flexGrow: 1, position: "relative" }}>
       <div className="text-hero">
-        <p className="sub-tittle" style={{marginBottom: "15px"}}>
-            Escuela Padra Rafael Cantilo
+        <p className="sub-tittle" style={{ marginBottom: "15px" }}>
+          Escuela Padre Rafael Cantilo
         </p>
         <p className="text-hero-paragraph">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias iusto tempore ad doloribus reiciendis magni est animi itaque recusandae similique, id sit inventore incidunt a quasi minima reprehenderit laudantium aliquid.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias iusto tempore ad doloribus reiciendis magni est animi itaque recusandae similique, id sit inventore incidunt a quasi minima
+          reprehenderit laudantium aliquid.
         </p>
       </div>
-
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
